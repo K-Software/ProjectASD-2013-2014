@@ -11,7 +11,7 @@
  * @author Simone Cappabianca - Mat: 5423306
  *
  */
-public class TestMTreeOfInt implements Test {
+public class TestMTreeOfInt implements TestMTree {
 
 	// Properties
 	
