@@ -11,7 +11,7 @@
  * @author Simone Cappabianca - Mat: 5423306
  *
  */
-public class TestMTreeOfInt {
+public class TestMTreeOfInt implements Test {
 
 	// Properties
 	
@@ -19,19 +19,7 @@ public class TestMTreeOfInt {
 	
 	// Methods
 		
-	/**
-	 * Questo metodo effettua i test di correttezza per il metodo insRoot
-	 * della classe MTree.<br>
-	 * Il metodo effettua i seguenti controlli:
-	 * <ul>
-	 * <li>crea un nuovo MTreeOfInt e controllo se é giá presente una root;</li>
-	 * <li>prova a inserire 2 volte la root.</li>
-	 * </ul>
-	 * 
-	 * @return Restituisce true se i controlli hanno esito positivo, 
-	 * false altrimenti.
-	 */
-	private boolean testInsRoot() {
+	public boolean testInsRoot() {
 		
 		// Creo un nuovo albero
 		MTreeOfInt tree = new MTreeOfInt(20, 5);
@@ -58,22 +46,7 @@ public class TestMTreeOfInt {
 		return true;
 	}
 	
-	/**
-	 * Questo metodo effettua i test dell metodo insNode della classe 
-	 * MTreeOfInt.<br>
-	 * I controllo effettuati sono:
-	 * <ul>
-	 * <li>controllo se l'albero ha una root;</li>
-	 * <li>controllo la correttezza dei dei parametri value, father e pos;</li>
-	 * <li>controllo se il padre del nuovo nodo esiste;</li>
-	 * <li>controllo se la posizione del nuovo nodo é libera;</li>
-	 * <li>controllo che l'albero non sia pieno.</li>
-	 * </ul>
-	 * 
-	 * @return Restituisce true se i controlli hanno esito positivo, 
-	 * false altrimenti.
-	 */
-	private boolean testInsNode() {
+	public boolean testInsNode() {
 		
 		// Creo un nuovo albero di grado 5 e dimensione 10
 		MTreeOfInt tree = new MTreeOfInt(5, 10);
@@ -148,24 +121,7 @@ public class TestMTreeOfInt {
 		return true;
 	}
 	
-	/**
-	 * Questo metodo si occupa di testare il metedo findNodePosition della classe 
-	 * MTreeOfInt.<br>
-	 * I controlli effettuati sono:
-	 * <ul>
-	 * <li>controllo se restituisce la posizione corretta di un valore presente
-	 * all'interno dell'albero;</li>
-	 * <li>controllo se non restituisce alcuna posizione per un valore non 
-	 * presente non presente nell'albero;</li>
-	 * <li>controllo se restituisce tutte le posizione di un valore presente 
-	 * piú volte all'interno dell'albero.</li>
-	 * </ul>
-	 * 
-	 * @return Restituisce true se i controlli hanno esito positivo, 
-	 * false altrimenti.
-	 * @return
-	 */
-	private boolean testFindNodePosition() {
+	public boolean testFindNodePosition() {
 		
 		// Vettore con la lista delle posizioni dello occorenze del valore 
 		// ricercato
@@ -219,24 +175,7 @@ public class TestMTreeOfInt {
 		return true;
 	}
 	
-	/**
-	 * Questo metodo si occupa di testare il metodo findFatherPosition della 
-	 * classe MTreeOfInt.<br>
-	 * I controlli effettuati sono:
-	 * <ul>
-	 * <li>controllo che la pasizione passata come parametro sia una posizione 
-	 * valida;</li>
-	 * <li>controllo che la posizione passata come parametro individui un nodo
-	 * non vuoto;</li>
-	 * <li>controllo che restituisca -1 se la posizione passata come parametro
-	 * corrisponde alla root dell'albero;</li>
-	 * <li>controllo che la posizione che restituisce sia corretta.</li>
-	 * </ul>
-	 * 
-	 * @return Restituisce true se i controlli hanno avuto esito positivo,
-	 * false altrimenti.
-	 */
-	private boolean testFindFatherPosition() {
+	public boolean testFindFatherPosition() {
 		
 		// Creo un nuovo albero di grado 5 e dimensione 10
 		MTreeOfInt tree = new MTreeOfInt(5, 10);
@@ -281,22 +220,7 @@ public class TestMTreeOfInt {
 	}
 	
 	
-	/**
-	 * Questo metodo si occupa di testare il metodo getSons della classe 
-	 * MTreeOfInt.<br>
-	 * I controlli effettuati sono:
-	 * <ul>
-	 * <li>controllo che la pasizione passata come parametro sia una posizione 
-	 * valida;</li>
-	 * <li>controllo che la posizione passata come parametro individui un nodo
-	 * non vuoto;</li>
-	 * <li>controllo che restituisca il numero giusto di figli;</li>
-	 * </ul>
-	 * 
-	 * @return Restitusce true se i test hanno avuto esito positivo, false 
-	 * altrimenti.
-	 */
-	private boolean testGetSons() {
+	public boolean testGetSons() {
 		
 		// Creo un nuovo albero di grado 5 e dimensione 10
 		MTreeOfInt tree = new MTreeOfInt(5, 10);
@@ -349,14 +273,7 @@ public class TestMTreeOfInt {
 		return true;
 	}
 	
-	/**
-	 * 
-	 * @return
-	 */
-	private String testBreadthFirstSearch() {
-		/*
-		 * TODO Metodo da implementare
-		 */
+	public String testBreadthFirstSearch() {
 		MTreeOfInt tree = new MTreeOfInt(5, 10);
 		tree.insRoot(1);
 		tree.insNode(2, 0, 1);
@@ -378,14 +295,7 @@ public class TestMTreeOfInt {
 		return s.toString();
 	}
 	
-	/**
-	 * 
-	 * @return
-	 */
-	private String testDepthFirstSearch() {
-		/*
-		 * TODO Metodo da implementare
-		 */
+	public String testDepthFirstSearch() {
 		MTreeOfInt tree = new MTreeOfInt(5, 10);
 		tree.insRoot(1);
 		tree.insNode(2, 0, 1);
@@ -407,9 +317,6 @@ public class TestMTreeOfInt {
 		return s.toString();
 	}
 	
-	/**
-	 * Questo metodo esegue i test della classe
-	 */
 	public void runTest() {
 		System.out.println("Test MTreeOfInt");
 		System.out.println("Test inserimento root: " + testInsRoot());
