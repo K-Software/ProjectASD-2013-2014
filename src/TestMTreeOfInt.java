@@ -336,28 +336,16 @@ public class TestMTreeOfInt {
 			return false;
 		}
 		
-		return true;
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	private boolean testBreadthFirstSearch() {
-		/*
-		 * @todo Metodo da implementare
-		 */
-		MTreeOfInt tree = new MTreeOfInt(5, 10);
-		tree.insRoot(0);
-		tree.insNode(1, 0, 1);
-		tree.insNode(2, 0, 2);
+		// Controllo che recuperi tutti i figli della radice
 		tree.insNode(3, 0, 3);
 		tree.insNode(4, 0, 4);
 		tree.insNode(5, 0, 5);
-		tree.insNode(6, 1, 1);
-		tree.insNode(7, 1, 2);
-		tree.insNode(8, 1, 3);
-		tree.insNode(9, 1, 4);
+		sonsOfNode0 = tree.getSons(0);
+		if ((sonsOfNode0.length != 0) || (sonsOfNode0[0] != 1) || (sonsOfNode0[1] != 2)
+				|| (sonsOfNode0[0] != 3) || (sonsOfNode0[1] != 4) || (sonsOfNode0[1] != 5)) {
+			return false;
+		}
+		
 		return true;
 	}
 	
@@ -365,11 +353,58 @@ public class TestMTreeOfInt {
 	 * 
 	 * @return
 	 */
-	private boolean testDepthFirstSearch() {
+	private String testBreadthFirstSearch() {
 		/*
-		 * @todo Metodo da implementare
+		 * TODO Metodo da implementare
 		 */
-		return true;
+		MTreeOfInt tree = new MTreeOfInt(5, 10);
+		tree.insRoot(1);
+		tree.insNode(2, 0, 1);
+		tree.insNode(3, 0, 2);
+		tree.insNode(4, 0, 3);
+		tree.insNode(5, 0, 4);
+		tree.insNode(6, 0, 5);
+		tree.insNode(7, 1, 1);
+		tree.insNode(8, 1, 2);
+		tree.insNode(9, 1, 3);
+		tree.insNode(10, 1, 4);
+		
+		int[] viewBFS = tree.breadthFirstSearch();
+		StringBuilder s = new StringBuilder();
+		for (int i=0; i < viewBFS.length; i++) {
+			s.append(viewBFS[i]);
+			s.append(" -> ");
+		}
+		return s.toString();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	private String testDepthFirstSearch() {
+		/*
+		 * TODO Metodo da implementare
+		 */
+		MTreeOfInt tree = new MTreeOfInt(5, 10);
+		tree.insRoot(1);
+		tree.insNode(2, 0, 1);
+		tree.insNode(3, 0, 2);
+		tree.insNode(4, 0, 3);
+		tree.insNode(5, 0, 4);
+		tree.insNode(6, 0, 5);
+		tree.insNode(7, 1, 1);
+		tree.insNode(8, 1, 2);
+		tree.insNode(9, 1, 3);
+		tree.insNode(10, 1, 4);
+		
+		int[] viewBFS = tree.depthFirstSearch();
+		StringBuilder s = new StringBuilder();
+		for (int i=0; i < viewBFS.length; i++) {
+			s.append(viewBFS[i]);
+			s.append(" -> ");
+		}
+		return s.toString();
 	}
 	
 	/**
@@ -382,5 +417,7 @@ public class TestMTreeOfInt {
 		System.out.println("Test ricerca posizione node: " + testFindNodePosition());
 		System.out.println("Test ricerca posizione padre: " + testFindFatherPosition());
 		System.out.println("Test ricerca figli di un padre: " + testGetSons());
+		System.out.println("Visita in ambiezza: " + testBreadthFirstSearch());
+		System.out.println("Visita in profondita': " + testDepthFirstSearch());
 	}
 }
