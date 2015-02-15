@@ -302,10 +302,9 @@ public class MTreeOfInt {
 	 * @return Restituisce un array con le posizione dei figli del padre
 	 */
 	public int[] getSons(int fatherPos) {
-		int count = 0;
 		int[] res;
 		ArrayList<Integer> sons = new ArrayList<Integer>();
-		for (int i=(fatherPos*grade)+1; (i < (fatherPos*grade)+grade) && (i < dim); i++) {
+		for (int i=(fatherPos*grade)+1; (i < (fatherPos*grade)+grade+1) && (i < dim); i++) {
 			if (tree[i] != EMPTY_VALUE) {
 				sons.add(i);
 			}
@@ -350,6 +349,7 @@ public class MTreeOfInt {
 				// Visito i nodo presente nelle coda
 				Node node = queue.remove();
 				view[i] = node.value;
+				i++;
 				
 				// Recupero i figlio del nodo appena visitato e gli inserisco
 				// allora volta nella coda
@@ -359,23 +359,6 @@ public class MTreeOfInt {
 				}
 			}
 		}
-		/*
-		 public LinkedList<T> visitaBFS(){
-		LinkedList<NodoBinPF<T>> c=new LinkedList<NodoBinPF<T>>(); //coda di servizio: la simulo con una LinkedList
-		LinkedList<T> listaNodi=new LinkedList<T>(); //lista nodi in uscita
-		c.add(radice); // add di LinkedList aggiunge in fondo
-		while (!c.isEmpty()){
-			NodoBinPF<T> u=c.remove();//remove di LinkedList toglie il primo
-			if(u!=null){
-				listaNodi.add(u.getInfo());	// Il nodo viene ''chiuso''.
-				
-				c.add(u.getSin());			// Si inseriscono nella coda
-				c.add(u.getDes());			// i nodi ''aperti'', da visitare.
-			}
-		}
-		return listaNodi;
-		}
-		 */
 		return view;
 	}
 	
@@ -412,6 +395,7 @@ public class MTreeOfInt {
 				// Visito i nodo presente nelle coda
 				Node node = stack.pop();
 				view[i] = node.value;
+				i++;
 				
 				// Recupero i figlio del nodo appena visitato e gli inserisco
 				// allora volta nella coda
@@ -421,23 +405,6 @@ public class MTreeOfInt {
 				}
 			}
 		}
-		/*
-		Visita in PROFONDITA' (anticipata) alg. iterativo.
-		public LinkedList<T> visitaDFS(){
-			Stack<NodoBinPF<T>> p=new Stack<NodoBinPF<T>>(); 	// Struttura di servizio.
-			LinkedList<T> nodiAlbero=new LinkedList<T>();			// Conterra' i nodi visitati.
-			p.push(radice);
-			while (!p.isEmpty()){
-				NodoBinPF<T> u=p.pop();
-				if (u!=null){
-					nodiAlbero.add(u.getInfo());	//	Il nodo viene ''chiuso''.
-					p.push(u.getDes());			//	Si inseriscono nella pila
-					p.push(u.getSin());			//	i nodo ''aperti'', da visitare.
-				}
-			}
-			return nodiAlbero;
-		}
-		*/
 		return view;
 	}
 	
