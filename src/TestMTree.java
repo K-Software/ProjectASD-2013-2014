@@ -63,7 +63,7 @@ public interface TestMTree {
 	
 	/**
 	 * Questo metodo si occupa di testare il metodo findFatherPosition della 
-	 * classe MTreeOfInt.<br>
+	 * classe MTree.<br>
 	 * I controlli effettuati sono:
 	 * <ul>
 	 * <li>controllo che la pasizione passata come parametro sia una posizione 
